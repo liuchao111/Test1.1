@@ -1,4 +1,4 @@
-def meun():
+def menu():
     menu_info = '''＋－－－－－－－－－－－－－－－－－－－－－－＋
 
 ｜ １）添加学生信息                           ｜
@@ -34,9 +34,13 @@ def meun():
 def get_age(*l):
     for x in l:
         return x.get("age")
+
+
 def get_score(*l):
     for x in l:
         return x.get("score")
+
+
 # １）添加学生信息
 def add_student_info():
     L = []
@@ -47,13 +51,15 @@ def add_student_info():
         try:
             a = int(input("请输入年龄："))
             s = int(input("请输入成绩："))
-        except:
-            print("输入无效，不是整形数值．．．．重新录入信息")
+        except Exception as e:
+            print("输入无效，", e, "不是整形数值．．．．重新录入信息")
             continue
         info = {"name": n, "age": a, "score": s}
         L.append(info)
     print("学生信息录入完毕！！！")
     return L
+
+
 # ２）显示所有学生的信息
 def show_student_info(student_info):
     if not student_info:
